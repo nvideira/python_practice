@@ -29,3 +29,9 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+max_capacity = {
+    "water": 2000,
+    "milk": 1000,
+    "coffee": 300,
+}

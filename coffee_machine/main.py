@@ -2,9 +2,6 @@ import data
 
 on = True
 money = 0
-max_water = 2000
-max_milk = 1000
-max_coffee = 300
 
 
 def check_ingredients(drink):
@@ -50,13 +47,7 @@ while on:
     elif order == "refill":
         for src in data.resources:
             add = int(input(f"How much {src} will you add? "))
-            if src == "water" and data.resources[src] + add > max_water:
-                add = max_water - data.resources[src]
-                print(f"{src.capitalize()} capacity is now at max.")
-            elif src == "milk" and data.resources[src] + add > max_milk:
-                add = max_milk - data.resources[src]
-                print(f"{src.capitalize()} capacity is now at max.")
-            elif src == "coffee" and data.resources[src] + add > max_coffee:
-                add = max_coffee - data.resources[src]
-                print(f"{src.capitalize()} capacity is now at max.")
+            if data.resources[src] + add > data.max_capacity[src]:
+                add = data.max_capacity[src] - data.resources[src]
+                print(f"{src.capitalize()} capacity is now at max. Any excess {src} has been removed.")
             data.resources[src] += add
